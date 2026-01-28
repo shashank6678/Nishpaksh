@@ -1,11 +1,11 @@
 # pages/4_Metrics_and_Thresholds.py
 """
-Standalone Metrics & Thresholds page (improved UX)
+Standalone Metrics & Thresholds page 
 - User selects problem type (classification/regression/clustering/recommendation)
 - Metrics selection is a checkbox grid (with Select all / Clear selection)
 - Threshold numeric inputs appear inline when a metric is checked
 - Optional notes removed (per request)
-- Thresholds saved to st.session_state['thresholds'] but not applied in Results (standalone)
+- Thresholds saved to st.session_state['thresholds']
 """
 
 import streamlit as st
@@ -733,5 +733,6 @@ with col2:
         if "thresholds" in st.session_state:
             del st.session_state["thresholds"]
         st.success("Cleared thresholds from session.")
+
 
 
