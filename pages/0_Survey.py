@@ -3,15 +3,6 @@ Survey page — INPUT ONLY (governance risk assessment)
 
 Responsibilities:
 - Render governance / audit survey using utils.survey.render_survey()
-- Interpret results correctly as RISK (not performance)
-- Store normalized outputs in st.session_state for downstream reporting
-- Generate on-screen PREVIEW visualizations (ephemeral)
-- Lock survey once completed
-
-Hard rules:
-- No DOCX / PDF generation
-- No filesystem writes
-- No report logic
 """
 
 import streamlit as st
@@ -20,7 +11,7 @@ import traceback
 from typing import Dict, Any
 
 # --------------------------------------------------
-# Import survey renderer (unchanged)
+# Import survey renderer
 # --------------------------------------------------
 try:
     from utils.survey import render_survey
@@ -50,8 +41,7 @@ def extract_governance_outputs(submission: Dict[str, Any]) -> Dict[str, Any]:
         risk_sum = 0
         count = 0
         for resp in responses.values():
-            # utils.survey already excluded "Not Applicable" during scoring,
-            # but we stay defensive here.
+            
             from utils.survey import get_risk_score
             score = get_risk_score(resp)
             if score > 0:
@@ -121,8 +111,7 @@ if not submission:
 
 st.success("Survey completed successfully.")
 
-# --------------------------------------------------
-# Normalize + Store Outputs (ONCE)
+
 # --------------------------------------------------
 if not st.session_state.get("survey_completed"):
 
@@ -130,7 +119,7 @@ if not st.session_state.get("survey_completed"):
 
     st.session_state["survey_outputs"] = outputs
 
-    # minimal plotting payload (no raw submission duplication)
+    
     st.session_state["survey_plot_data"] = {
         "proxy_subscores": outputs["proxy_subscores"]
     }
@@ -160,7 +149,7 @@ st.caption(
 )
 
 # --------------------------------------------------
-# Preview: Proxy Risk Drivers (Ephemeral)
+# Preview: Proxy Risk Drivers 
 # --------------------------------------------------
 plot_data = st.session_state.get("survey_plot_data")
 
@@ -177,7 +166,8 @@ else:
 # --------------------------------------------------
 st.markdown("---")
 st.caption(
-    "✔ Survey results are locked and stored for downstream reporting. "
+    "
     "To modify responses, reset the session."
 )
+
 
