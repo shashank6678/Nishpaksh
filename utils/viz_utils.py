@@ -1,3 +1,6 @@
+
+
+
 # utils/viz_utils_matplotlib.py
 # Visualization utilities for the fairness dashboard
 # - Matplotlib charts (professional styling)
@@ -548,4 +551,5 @@ def plot_group_error_panel(
     
     fig.suptitle(title, fontsize=14, fontweight='bold', y=1.02)
     plt.tight_layout()
+
     return fig
