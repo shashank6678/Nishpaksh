@@ -154,7 +154,7 @@ class FairnessMetrics:
         preds_flipped = self.model.predict(X_flipped)
         return np.mean(preds_orig != preds_flipped)
      # ============================
-# ADD THESE METHODS INSIDE FairnessMetrics CLASS
+
 # ============================
 
     # ----------------------------
@@ -230,7 +230,7 @@ class FairnessMetrics:
 
 
     # ----------------------------
-    # Generalized Entropy Index (AIF360-compatible)
+    # Generalized Entropy Index 
     # ----------------------------
     def generalized_entropy_index(self, alpha=2):
         df = pd.DataFrame({'pred': self.y_pred, 'group': self.sensitive_attr})
@@ -301,4 +301,5 @@ class FairnessMetrics:
             metrics["Counterfactual Fairness"] = self.counterfactual_fairness()
 
         return metrics
+
 
