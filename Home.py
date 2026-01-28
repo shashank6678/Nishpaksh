@@ -5,7 +5,7 @@ import pandas as pd
 # Page config
 st.set_page_config(page_title="Nishpaksh", layout="centered")
 
-# ---- PROFESSIONAL THEME + STYLING ----
+
 st.markdown(""" 
     <style>
     /* ======================================================
@@ -573,3 +573,4 @@ if "uploaded_data" in st.session_state and "model_file" in st.session_state:
     st.sidebar.page_link("pages/3_Output.py", label="Output")
 else:
     st.sidebar.info("Upload both data and model to proceed.")
+
