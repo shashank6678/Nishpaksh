@@ -248,7 +248,7 @@ def plot_fairness_error_bars(
     return fig
 
 
-# ============ -style disaggregated views ============
+# ============ disaggregated views ============
 
 def plot_by_group_bars(group_df: pd.DataFrame, sensitive_col: str, value_col: str, title: Optional[str] = None) -> Figure:
     df = group_df[[sensitive_col, value_col]].copy()
@@ -317,7 +317,7 @@ def plot_models_groups_heatmap(matrix_df: pd.DataFrame, title: str = "Metric by 
     return fig
 
 
-# ============ What-If-style trade-off (no threshold sweep) ============
+# ============  trade-off  plot (no threshold sweep) ============
 
 def plot_fairness_accuracy_scatter(
     results_df: pd.DataFrame,
@@ -358,7 +358,7 @@ def plot_fairness_accuracy_scatter(
     return fig
 
 
-# ============ -style disparity in performance ============
+# ============ disparity in performance ============
 
 def _group_error_breakdown(
     y_true,
@@ -553,4 +553,5 @@ def plot_group_error_panel(
     plt.tight_layout()
 
     return fig
+
 
