@@ -5,7 +5,7 @@
 # Visualization utilities for the fairness dashboard
 # - Matplotlib charts (professional styling)
 # - Robust handling of non-numeric labels
-# - Fairlearn- and What-If-inspired views
+# 
 
 from typing import Dict, List, Optional, Tuple
 
@@ -248,7 +248,7 @@ def plot_fairness_error_bars(
     return fig
 
 
-# ============ Fairlearn-style disaggregated views ============
+# ============ -style disaggregated views ============
 
 def plot_by_group_bars(group_df: pd.DataFrame, sensitive_col: str, value_col: str, title: Optional[str] = None) -> Figure:
     df = group_df[[sensitive_col, value_col]].copy()
@@ -358,7 +358,7 @@ def plot_fairness_accuracy_scatter(
     return fig
 
 
-# ============ Fairlearn-style disparity in performance ============
+# ============ -style disparity in performance ============
 
 def _group_error_breakdown(
     y_true,
@@ -393,7 +393,7 @@ def plot_disparity_in_performance(
     positive_pred: Optional[object] = None,
 ):
     """
-    Under/overprediction split per group (Fairlearn-style):
+    Under/overprediction split per group (-style):
       - Left (negative): underprediction rate = FN / group size
       - Right (positive): overprediction rate = FP / group size
     """
@@ -553,3 +553,4 @@ def plot_group_error_panel(
     plt.tight_layout()
 
     return fig
+
