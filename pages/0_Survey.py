@@ -180,3 +180,4 @@ st.caption(
     "✔ Survey results are locked and stored for downstream reporting. "
     "To modify responses, reset the session."
 )
+
