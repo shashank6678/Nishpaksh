@@ -67,7 +67,7 @@ with col_r:  # MeitY right
             continue
     if not shown: st.write("")
 
-# ------------------ App Logic ------------------
+# ------------------------------------
 st.title("Nishpaksh")
 
 data_file = st.file_uploader("Upload tabular dataset (CSV)", type=["csv"])
@@ -107,3 +107,4 @@ if "uploaded_data" in st.session_state and "model_file" in st.session_state:
     st.sidebar.page_link("pages/3_Output.py", label="Output")
 else:
     st.sidebar.info("Upload both data and model to proceed.")
+
