@@ -1,6 +1,5 @@
 # pages/5_Report.py
-# FINAL REPORT COMPILER — WIRE-FRAME ALIGNED (TEC 7.1 COMPLIANT)
-# UI REFINED + SECTION STATUS (NO LOGIC CHANGES)
+# FINAL REPORT COMPILER — WIRE-FRAME ALIGNED (TEC 7.1 COMPLIANT
 
 import streamlit as st
 import numpy as np
@@ -902,3 +901,4 @@ if st.button("Generate Final Report"):
 
     st.success("Final report generated successfully.")
     st.download_button("Download Report", open(out, "rb"), file_name=out.name)
+
